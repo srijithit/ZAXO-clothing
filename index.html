@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ZAXO Clothing | Premium Uniforms — Stay Fit Wear Fit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#2da82a;--g2:#1e8c1c;--glt:#e8f7e8;--gltr:#c2ebc2;
+  --ink:#111827;--muted:#6B7280;--border:#E5E7EB;
+  --bg:#fff;--bgs:#F9FAFB;--bgt:#F3F4F6;
+  --r:8px;--rl:12px;
+}
+:root[data-theme="dark"]{--ink:#F9FAFB;--muted:#9CA3AF;--border:#374151;--bg:#111827;--bgs:#1F2937;--bgt:#1F2937}
+:root[data-theme="dark"] .logo-m,
+:root[data-theme="dark"] .qbtn,
+:root[data-theme="dark"] .btn-g,
+:root[data-theme="dark"] .fsub,
+:root[data-theme="dark"] .wa-b,
+:root[data-theme="dark"] .stat-wide,
+:root[data-theme="dark"] .calc-res{filter:brightness(1.1)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.5}
+
+/* ─── TOPBAR ─── */
+.topbar{background:var(--g);color:#fff;text-align:center;padding:9px 16px;font-size:.78rem;font-weight:500;letter-spacing:.02em}
+.topbar strong{font-weight:700}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border)}
+.nav-i{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.logo-m{width:34px;height:34px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:#fff}
+.logo-t{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--ink)}
+.logo-t span{color:var(--g)}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:all .15s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--g);background:var(--glt)}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:10px}
+.nav-srch{display:flex;align-items:center;gap:7px;background:var(--bgs);border:1px solid var(--border);border-radius:8px;padding:7px 13px;font-size:.84rem;color:var(--muted);cursor:text;min-width:170px}
+.qbtn{background:var(--g);color:#fff;border:none;border-radius:8px;padding:8px 20px;font-size:.84rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s;text-decoration:none;white-space:nowrap}
+.qbtn:hover{background:var(--g2)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;margin-left:4px}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;display:block;transition:all .2s}
+
+/* ─── MOBILE MENU ─── */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:1000;padding:80px 28px 40px;flex-direction:column;gap:4px;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-close{position:absolute;top:18px;right:18px;background:var(--bgs);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--ink)}
+.mob-menu a{font-size:1.15rem;font-weight:700;color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.mob-menu a:hover{color:var(--g)}
+.mob-cta-btn{background:var(--g);color:#fff;border-radius:10px;padding:16px;text-align:center;margin-top:16px;font-size:1rem;font-weight:800;text-decoration:none;display:block}
+
+/* ─── HERO ─── */
+.hero{background:linear-gradient(135deg,var(--glt) 0%,var(--bg) 60%);padding:76px 24px 64px;overflow:hidden;position:relative}
+.hero::after{content:'';position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(45,168,42,.07) 0%,transparent 70%);pointer-events:none}
+.hero-i{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--gltr);border-radius:20px;padding:5px 14px;font-size:.73rem;font-weight:600;color:var(--g);margin-bottom:20px;letter-spacing:.04em}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:blink 1.8s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.3rem,4.5vw,3.5rem);font-weight:800;line-height:1.05;color:var(--ink);margin-bottom:14px}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero-sub{font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:28px;max-width:440px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.btn-g{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:14px 28px;border-radius:var(--r);font-weight:800;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;box-shadow:0 4px 12px rgba(45,168,42,.2)}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,168,42,.3)}
+.btn-o{background:var(--bg);color:var(--ink);padding:12px 26px;border-radius:var(--r);font-weight:600;font-size:.9rem;text-decoration:none;border:1.5px solid var(--border);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+.btn-o:hover{border-color:var(--g);color:var(--g)}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:.76rem;font-weight:500;color:var(--muted)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-c{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:20px}
+.stat-n{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--g);line-height:1}
+.stat-l{font-size:.76rem;color:var(--muted);margin-top:3px}
+.stat-wide{grid-column:1/-1;background:var(--g);border-radius:var(--rl);padding:18px 20px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.stat-wide h3{font-size:.95rem;font-weight:700;margin-bottom:3px}
+.stat-wide p{font-size:.78rem;opacity:.85}
+.stat-wide-btn{background:#fff;color:var(--g);border:none;border-radius:7px;padding:9px 16px;font-weight:700;font-size:.8rem;cursor:pointer;flex-shrink:0;font-family:'Inter',sans-serif;transition:opacity .15s}
+.stat-wide-btn:hover{opacity:.9}
+
+/* ─── FEAT STRIP ─── */
+.feat-strip{background:var(--bgs);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.feat-i{max-width:1200px;margin:0 auto;padding:16px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat{display:flex;align-items:center;gap:12px}
+.feat-ico{width:40px;height:40px;background:var(--glt);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.feat b{display:block;font-size:.84rem;font-weight:700;color:var(--ink)}
+.feat span{font-size:.76rem;color:var(--muted)}
+
+/* ─── SEARCH BAR ─── */
+.srch-bar{background:var(--bgs);border-bottom:1px solid var(--border);padding:12px 24px}
+.srch-bar-i{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.srch-w{flex:1;min-width:180px;position:relative}
+.srch-w input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 13px 9px 36px;font-family:'Inter',sans-serif;font-size:.875rem;color:var(--ink);outline:none;transition:border-color .15s}
+.srch-w input:focus{border-color:var(--g)}
+.srch-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none}
+.fchips{display:flex;gap:6px;flex-wrap:wrap}
+.fc{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:.76rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap}
+.fc:hover{border-color:var(--g);color:var(--g)}
+.fc.on{background:var(--glt);border-color:var(--g);color:var(--g2)}
+.scnt{font-size:.76rem;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+/* ─── CAT TABS ─── */
+.tabs-outer{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:100}
+.tabs{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:none;border:none;border-bottom:2px solid transparent;padding:12px 18px;font-size:.85rem;font-weight:600;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--g);border-bottom-color:var(--g)}
+
+/* ─── PRODUCT PANELS ─── */
+.panels-wrap{background:var(--bgs)}
+.panels-i{max-width:1200px;margin:0 auto;padding:0 24px 48px}
+.cat-panel{display:none}
+.cat-panel.on{display:block}
+.prod-info{padding:20px 0 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--border);margin-bottom:20px}
+.prod-info p{font-size:.88rem;color:var(--muted);max-width:480px;line-height:1.65}
+.info-chips{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.ic{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.ic strong{display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:2px}
+.ic span{font-size:.8rem;color:var(--muted)}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.pc{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;cursor:pointer;transition:all .2s}
+.pc:hover{border-color:var(--gltr);transform:translateY(-6px);box-shadow:0 16px 32px rgba(45,168,42,.12)}
+.pimg{aspect-ratio:4/3;background:var(--bgt);display:flex;align-items:center;justify-content:center;font-size:3.2rem;position:relative}
+.pbadge{position:absolute;top:10px;left:10px;padding:3px 8px;border-radius:20px;font-size:.66rem;font-weight:700;text-transform:uppercase}
+.bs{background:#FEF2F2;color:#DC2626}
+.bn{background:#EEF2FF;color:#4338CA}
+.bc{background:var(--glt);color:var(--g2)}
+.pbody{padding:14px 16px 16px}
+.pcat{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:4px}
+.pname{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.3}
+.pdesc{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.pswatches{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.psw{width:14px;height:14px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .15s;flex-shrink:0}
+.psw.on{border-color:var(--ink);transform:scale(1.2)}
+.pfoot{display:flex;align-items:center;justify-content:space-between}
+.pprice{display:flex;align-items:baseline;gap:6px}
+.pcurr{font-size:1rem;font-weight:800;color:var(--ink)}
+.pold{font-size:.78rem;color:var(--muted);text-decoration:line-through}
+.pbtn{background:var(--glt);color:var(--g2);border:none;border-radius:6px;padding:6px 12px;font-size:.76rem;font-weight:700;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+.pbtn:hover{background:var(--g);color:#fff}
+.no-res{text-align:center;padding:52px 20px;color:var(--muted);font-size:.95rem;display:none}
+
+/* ─── CALCULATOR ─── */
+.calc-section{background:var(--bgs);border-top:1px solid var(--border);padding:96px 24px}
+.calc-i{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.calc-card{background:var(--bg);border:1px solid var(--border);border-radius:24px;padding:36px;box-shadow:0 12px 32px rgba(0,0,0,0.05);position:relative;overflow:hidden}
+.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--g),var(--g2))}
+.calc-res{background:var(--ink);color:#fff;border-radius:24px;padding:40px;display:flex;flex-direction:column;justify-content:center;height:100%;box-shadow:0 20px 40px rgba(0,0,0,0.15)}
+.calc-res h3{font-size:1.5rem;font-weight:800;margin-bottom:24px;font-family:'Syne',sans-serif;color:#fff}
+.calc-row{display:flex;justify-content:space-between;margin-bottom:16px;font-size:1rem;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px;color:#9CA3AF}
+.calc-row strong{color:#fff}
+.calc-tot{font-size:2.5rem;font-weight:800;margin-top:24px;display:flex;justify-content:space-between;align-items:baseline;color:var(--gltr)}
+.calc-tot span:first-child{font-size:1.1rem;color:#fff}
+.calc-btn{width:100%;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border:none;border-radius:12px;padding:16px;font-weight:800;font-size:1.1rem;margin-top:32px;cursor:pointer;transition:all 0.2s;box-shadow:0 8px 16px rgba(45,168,42,0.2)}
+.calc-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(45,168,42,0.3)}
+.range-w{margin-bottom:28px}
+.range-w label{display:flex;justify-content:space-between;font-weight:700;font-size:1rem;margin-bottom:12px;color:var(--ink)}
+.range-w input[type=range]{width:100%;accent-color:var(--g);height:6px;background:var(--border);border-radius:4px;outline:none;appearance:none;}
+.range-w input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;background:var(--g);border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:transform 0.1s}
+.range-w input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.1)}
+.calc-sel{width:100%;padding:14px;border:1px solid var(--border);border-radius:10px;background:var(--bgs);font-family:'Inter',sans-serif;margin-bottom:24px;color:var(--ink);font-size:1rem;font-weight:600;outline:none;transition:border-color 0.2s;cursor:pointer}
+.calc-sel:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--glt)}
+.calc-check{display:flex;align-items:center;gap:12px;margin-bottom:16px;cursor:pointer;font-weight:600;font-size:1rem;color:var(--ink);transition:opacity 0.2s}
+.calc-check:hover{opacity:0.8}
+.calc-check input[type=checkbox]{width:20px;height:20px;accent-color:var(--g);cursor:pointer}
+
+/* ─── HOW IT WORKS ─── */
+.how-section{background:var(--bg);border-top:1px solid var(--border);padding:80px 24px}
+.how-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:44px;position:relative}
+.how-steps::before{content:'';position:absolute;top:25px;left:10%;right:10%;height:2px;background:var(--gltr);z-index:0}
+.hs{text-align:center;padding:0 12px;position:relative;z-index:1}
+.hs-ico{font-size:1.2rem;margin-bottom:8px}
+.hs-num{width:50px;height:50px;border-radius:50%;background:var(--bg);border:2px solid var(--g);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--g);transition:all .2s}
+.hs:hover .hs-num{background:var(--g);color:#fff}
+.hs h3{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.hs p{font-size:.76rem;color:var(--muted);line-height:1.5}
+
+/* ─── COLOUR VIEWER ─── */
+.cv-section{background:var(--bgs);border-top:1px solid var(--border);padding:80px 24px}
+.cv{background:var(--bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:44px}
+.cv-i{display:grid;grid-template-columns:1fr 1.3fr}
+.cv-pal{padding:24px;border-right:1px solid var(--border)}
+.cv-pal h3{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
+.sw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:16px}
+.bsw{aspect-ratio:1;border-radius:9px;cursor:pointer;border:2px solid transparent;transition:all .2s}
+.bsw:hover{transform:scale(1.1)}
+.bsw.sel{border-color:var(--ink)}
+.bsw.lgt{border-color:var(--border)}
+.cv-prev{padding:24px;display:flex;flex-direction:column;gap:14px}
+.cv-disp{width:100%;height:90px;border-radius:var(--r);transition:background .3s;display:flex;align-items:center;justify-content:center}
+.cv-fl{background:rgba(255,255,255,.85);border-radius:5px;padding:3px 10px;font-size:.76rem;font-weight:700;color:#111}
+.cv-name{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--ink)}
+.cv-meta{font-size:.8rem;color:var(--muted)}
+.cv-badges{display:flex;gap:6px;flex-wrap:wrap}
+.cv-badge{background:var(--glt);color:var(--g2);border-radius:5px;padding:3px 9px;font-size:.68rem;font-weight:700}
+.cv-cats h4{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}
+.cv-chips{display:flex;gap:5px;flex-wrap:wrap}
+.cv-chip{background:var(--bgs);border:1px solid var(--border);border-radius:5px;padding:4px 9px;font-size:.75rem;color:var(--muted);cursor:pointer;transition:all .15s}
+.cv-chip:hover{border-color:var(--g);color:var(--g)}
+
+/* ─── B2B SECTION ─── */
+.b2b-section{background:var(--ink);color:#fff;padding:80px 24px}
+.b2b-i{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.b2b-ey{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:12px}
+.b2b-i h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:800;line-height:1.1;margin-bottom:14px}
+.b2b-i h2 em{color:var(--g);font-style:normal}
+.b2b-i>div:first-child>p{font-size:.92rem;color:#9CA3AF;line-height:1.7;margin-bottom:20px}
+.b2b-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.bt{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 11px;font-size:.74rem;font-weight:600;color:#D1D5DB;letter-spacing:.03em}
+.b2b-cards{display:flex;flex-direction:column;gap:12px}
+.b2c{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--rl);padding:22px}
+.b2c h3{font-size:.95rem;font-weight:700;margin-bottom:5px;color:#fff}
+.b2c p{font-size:.82rem;color:#9CA3AF;line-height:1.6;margin-bottom:12px}
+.b2c a{display:inline-flex;align-items:center;gap:5px;color:var(--g);font-size:.82rem;font-weight:700;text-decoration:none;transition:gap .15s}
+.b2c a:hover{gap:9px}
+
+/* ─── QUALITY ─── */
+.quality-section{background:var(--bgs);border-top:1px solid var(--border);padding:80px 24px}
+.qg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:44px}
+.qc{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:26px;position:relative;overflow:hidden}
+.qc::before{content:'';display:block;height:3px;background:var(--g);border-radius:2px;margin-bottom:16px}
+.qc-ico{font-size:1.6rem;margin-bottom:10px}
+.qc h3{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:7px}
+.qc p{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+/* ─── CLIENTS ─── */
+.clients-section{background:var(--bg);border-top:1px solid var(--border);padding:68px 24px}
+.mq-outer{overflow:hidden;position:relative;margin-top:36px}
+.mq-outer::before,.mq-outer::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.mq-outer::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.mq-outer::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.mq{display:flex;animation:mqs 30s linear infinite}
+.mq:hover{animation-play-state:paused}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mchip{display:inline-flex;align-items:center;background:var(--bgs);border:1px solid var(--border);border-radius:8px;padding:10px 20px;margin:0 6px;font-size:.8rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:all .15s}
+.mchip:hover{color:var(--ink);border-color:var(--gltr)}
+
+/* ─── TESTIMONIALS ─── */
+.testi-section{background:var(--bgs);border-top:1px solid var(--border);padding:80px 24px}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:44px}
+.tc{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:24px;transition:border-color .2s}
+.tc:hover{border-color:var(--gltr)}
+.stars{color:#F59E0B;font-size:.85rem;margin-bottom:10px;letter-spacing:2px}
+.tc-t{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:18px;font-style:italic}
+.tc-a{display:flex;align-items:center;gap:10px}
+.tav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--g2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0}
+.tname{font-weight:700;font-size:.85rem;color:var(--ink)}
+.tloc{font-size:.72rem;color:var(--muted)}
+
+/* ─── CONTACT ─── */
+.contact-section{background:var(--bg);border-top:1px solid var(--border);padding:80px 24px}
+.contact-i{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.contact-i h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:14px}
+.contact-i h2 em{color:var(--g);font-style:normal}
+.contact-i>div:first-child>p{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.cd{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
+.cd-ico{width:40px;height:40px;background:var(--glt);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cd-t strong{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--g);margin-bottom:2px}
+.cd-t span{font-size:.86rem;color:var(--muted);line-height:1.5}
+.cf{background:var(--bgs);border:1px solid var(--border);border-radius:16px;padding:32px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ff{grid-column:span 1}
+.ff.full{grid-column:1/-1}
+.ff label{display:block;font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.ff input,.ff select,.ff textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-family:'Inter',sans-serif;font-size:.875rem;color:var(--ink);outline:none;transition:border-color .15s}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--g)}
+.ff textarea{min-height:80px;resize:vertical}
+.ff select option{background:var(--bg)}
+.fsub{width:100%;background:var(--g);color:#fff;border:none;border-radius:8px;padding:12px;font-family:'Inter',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.04em;cursor:pointer;transition:background .15s;margin-top:4px}
+.fsub:hover{background:var(--g2)}
+.fsuc{text-align:center;padding:40px 20px;display:none}
+.fsuc-ok{font-size:2.5rem;margin-bottom:10px}
+.fsuc h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--g);margin-bottom:7px}
+.fsuc p{font-size:.85rem;color:var(--muted)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink);color:#fff;padding:52px 24px 24px}
+.ft-i{max-width:1200px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.ft-logo{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.ft-logo-m{width:32px;height:32px;background:var(--g);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#fff}
+.ft-logo-t{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#fff}
+.ft-logo-t span{color:var(--g)}
+.ft-brand p{font-size:.8rem;color:#9CA3AF;line-height:1.7;max-width:230px}
+.ft-col h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#6B7280;margin-bottom:12px}
+.ft-col ul{list-style:none}
+.ft-col li{margin-bottom:7px}
+.ft-col a{font-size:.82rem;color:#9CA3AF;text-decoration:none;transition:color .15s}
+.ft-col a:hover{color:var(--g)}
+.ft-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ft-bot p{font-size:.74rem;color:#6B7280}
+.gstin{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:3px 10px;font-size:.68rem;color:#6B7280}
+
+/* ─── MODAL ─── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.op{display:flex}
+.modal{background:var(--bg);border-radius:16px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;padding:32px;position:relative;animation:mfade .22s ease}
+@keyframes mfade{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.mcl{position:absolute;top:14px;right:14px;width:30px;height:30px;background:var(--bgs);border:1px solid var(--border);border-radius:7px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .15s}
+.mcl:hover{background:var(--border);color:var(--ink)}
+.mcat{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:5px}
+.modal h2{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:10px;color:var(--ink)}
+.mpr{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.mpr-c{font-size:1.6rem;font-weight:800;color:var(--ink)}
+.mpr-o{font-size:.9rem;color:var(--muted);text-decoration:line-through}
+.mdesc{font-size:.875rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.mdr{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.mch{background:var(--bgs);border:1px solid var(--border);border-radius:8px;padding:12px}
+.mch strong{display:block;font-size:.68rem;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.mch span{font-size:.8rem;color:var(--muted)}
+.mswl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}
+.msws{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.msw{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s}
+.msw.on{border-color:var(--ink);transform:scale(1.2)}
+.mitl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+.mits{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:20px}
+.mits li{font-size:.82rem;color:var(--muted);padding:6px 12px;background:var(--bgs);border-radius:6px;display:flex;align-items:center;gap:7px}
+.mits li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g);flex-shrink:0}
+.macts{display:flex;gap:9px}
+.macts .btn-g,.macts .btn-o{flex:1;text-align:center;border-radius:8px}
+
+/* ─── SIZE GUIDE MODAL ─── */
+.size-modal{max-width:640px}
+.size-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:18px}
+.st{background:var(--bgs);border:1px solid var(--border);border-radius:7px;padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+.st.on{background:var(--glt);border-color:var(--g);color:var(--g2)}
+.size-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.size-table th{background:var(--bgs);padding:10px 12px;text-align:left;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+.size-table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--muted)}
+.size-table tr:hover td{background:var(--bgs)}
+.size-note{background:var(--bgs);border:1px solid var(--border);border-radius:8px;padding:12px 15px;font-size:.8rem;color:var(--muted);margin-top:14px;line-height:1.6}
+
+/* ─── WHATSAPP ─── */
+.wa{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.wa-tip{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 15px;font-size:.78rem;color:var(--muted);max-width:200px;line-height:1.5;display:none;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.wa-tip strong{display:block;font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.wa:hover .wa-tip{display:block}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.38);transition:all .2s}
+.wa-btn:hover{transform:scale(1.1)}
+
+/* ─── SECTION HELPERS ─── */
+.sec-w{max-width:1200px;margin:0 auto}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0;gap:16px;flex-wrap:wrap}
+.ey{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.sec-hd h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;color:var(--ink);line-height:1.1}
+.sec-hd h2 em{color:var(--g);font-style:normal}
+.sec-sub{font-size:.88rem;color:var(--muted);max-width:300px;text-align:right;line-height:1.6}
+
+/* ─── REVEAL ─── */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .hero-i,.b2b-i,.contact-i,.ft-top,.calc-i{grid-template-columns:1fr}
+  .hero-i>div:last-child{display:none}
+  .feat-i{grid-template-columns:1fr 1fr}
+  .b2b-i h2{font-size:1.8rem}
+  .sec-hd{flex-direction:column;align-items:flex-start}
+  .sec-sub{text-align:left}
+  .how-steps::before{display:none}
+  .cv-i{grid-template-columns:1fr}
+  .cv-pal{border-right:none;border-bottom:1px solid var(--border)}
+  .ft-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-srch{display:none}
+  .hamburger{display:flex}
+  .tabs-outer{top:64px}
+}
+@media(max-width:560px){
+  .feat-i{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}
+  .macts{flex-direction:column}
+  .mdr{grid-template-columns:1fr}
+  .sw-grid{grid-template-columns:repeat(4,1fr)}
+  .how-steps{grid-template-columns:1fr 1fr;gap:20px}
+  .ft-top{grid-template-columns:1fr}
+}
+
+/* ─── THEME & CHAT BOT ─── */
+.theme-btn {
+  background: var(--bgs); border: 1px solid var(--border); color: var(--ink);
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; cursor: pointer; transition: all 0.2s; font-size: 1.1rem; flex-shrink: 0;
+}
+.theme-btn:hover { border-color: var(--g); transform: scale(1.05); }
+
+.chatbot-wrap { position:fixed; bottom:96px; right:24px; z-index:300; display:flex; flex-direction:column; align-items:flex-end; }
+.chat-toggle { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--g),var(--g2)); border:none; cursor:pointer; font-size:1.5rem; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-lg); transition:all 0.2s; color:#fff; }
+.chat-toggle:hover { transform:scale(1.1); }
+.chat-window { width:320px; background:var(--bg); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow-lg); display:none; flex-direction:column; margin-bottom:16px; overflow:hidden; transform-origin:bottom right; animation:chatPop 0.3s ease; }
+.chat-window.open { display:flex; }
+@keyframes chatPop { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
+.chat-header { background:linear-gradient(135deg,var(--g),var(--g2)); color:#fff; padding:16px; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:0.95rem; }
+.chat-body { padding:16px; display:flex; flex-direction:column; gap:12px; height:300px; overflow-y:auto; background:var(--bgs); }
+.chat-msg { padding:10px 14px; border-radius:12px; font-size:0.85rem; line-height:1.4; max-width:85%; word-wrap:break-word; }
+.chat-msg.bot { background:var(--bg); color:var(--ink); align-self:flex-start; border:1px solid var(--border); border-bottom-left-radius:4px; }
+.chat-msg.user { background:var(--glt); color:var(--g2); align-self:flex-end; border-bottom-right-radius:4px; }
+.chat-input { display:flex; border-top:1px solid var(--border); background:var(--bg); padding:12px; gap:8px; }
+.chat-input input { flex:1; border:1px solid var(--border); border-radius:20px; padding:8px 16px; font-family:'Inter',sans-serif; font-size:0.85rem; outline:none; background:var(--bg); color:var(--ink); }
+.chat-input input:focus { border-color:var(--g); }
+.chat-input button { background:var(--g); color:#fff; border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s; }
+.chat-input button:hover { background:var(--g2); }
+.addr-link { text-decoration:none; color:inherit; transition:transform 0.2s; display:flex; }
+.addr-link:hover { transform:translateX(4px); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">Custom logo embroidery on every order &nbsp;·&nbsp; <strong>Call: 9087100223</strong></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="#">
+      <img src="zaxo_logo.png" alt="ZAXO Clothing Logo" style="height: 48px; width: auto; border-radius: 8px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#b2b">B2B</a></li>
+      <li><a href="#calculator">Pricing</a></li>
+      <li><a href="#quality">Quality</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://zaxo-six.vercel.app/" target="_blank" style="color:var(--g); font-weight:800; border:1px solid var(--g); border-radius:8px; margin-left:8px;">Shop Online ↗</a></li>
+    </ul>
+    <div class="nav-r">
+      <button onclick="toggleTheme()" class="theme-btn" aria-label="Toggle theme"><span id="themeIcon"></span></button>
+      <div class="nav-srch">🔍&nbsp; Search uniforms…</div>
+      <a href="#contact" class="qbtn">Get quote</a>
+      <button class="hamburger" onclick="document.getElementById('mobMenu').classList.add('open')" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="document.getElementById('mobMenu').classList.remove('open')">✕ Close</button>
+  <a href="https://zaxo-six.vercel.app/" target="_blank" style="color:var(--g)">Shop Online <span>↗</span></a>
+  <a href="#products" onclick="document.getElementById('mobMenu').classList.remove('open')">Products <span>→</span></a>
+  <a href="#how" onclick="document.getElementById('mobMenu').classList.remove('open')">How it works <span>→</span></a>
+  <a href="#b2b" onclick="document.getElementById('mobMenu').classList.remove('open')">B2B orders <span>→</span></a>
+  <a href="#calculator" onclick="document.getElementById('mobMenu').classList.remove('open')">Pricing Calculator <span>→</span></a>
+  <a href="#quality" onclick="document.getElementById('mobMenu').classList.remove('open')">Quality <span>→</span></a>
+  <a href="#clients" onclick="document.getElementById('mobMenu').classList.remove('open')">Clients <span>→</span></a>
+  <a href="#contact" onclick="document.getElementById('mobMenu').classList.remove('open')">Contact <span>→</span></a>
+  <a href="#contact" class="mob-cta-btn" onclick="document.getElementById('mobMenu').classList.remove('open')">Get a free quote →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-i">
+    <div>
+      <div class="hero-badge"><div class="dot"></div> Coimbatore's #1 Uniform Manufacturer</div>
+      <h1>Premium Uniforms<br>for Every <em>Industry</em></h1>
+      <p class="hero-sub">Healthcare to hospitality, corporate to industrial — custom-branded uniforms built with Japanese stitching technology and antimicrobial fabrics. Trusted by 20+ leading brands.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-g">Browse catalogue</a>
+        <a href="#b2b" class="btn-o">B2B orders</a>
+      </div>
+      <div class="pills">
+        <span class="pill">🧵 Japanese stitching</span>
+        <span class="pill">🛡️ Antimicrobial fabric</span>
+        <span class="pill">🎨 Custom embroidery</span>
+        <span class="pill">✅ In-house QCS</span>
+      </div>
+    </div>
+    <div>
+      <div class="stats-grid">
+        <div class="stat-c"><div class="stat-n">20+</div><div class="stat-l">Trusted clients</div></div>
+        <div class="stat-c"><div class="stat-n">6</div><div class="stat-l">Uniform categories</div></div>
+        <div class="stat-c"><div class="stat-n">15+</div><div class="stat-l">Colour options</div></div>
+        <div class="stat-c"><div class="stat-n">100%</div><div class="stat-l">Custom branding</div></div>
+        <div class="stat-wide">
+          <div><h3>B2B hospital &amp; corporate contracts</h3><p>Bulk pricing · Logo embroidery · Roster sizing</p></div>
+          <button class="stat-wide-btn" onclick="document.getElementById('b2b').scrollIntoView({behavior:'smooth'})">Enquire →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="feat-strip">
+  <div class="feat-i">
+    <div class="feat"><div class="feat-ico">🧵</div><div><b>Japanese stitching</b><span>Precision seams, exact tension</span></div></div>
+    <div class="feat"><div class="feat-ico">🎨</div><div><b>Computerized embroidery</b><span>Pixel-accurate logo reproduction</span></div></div>
+    <div class="feat"><div class="feat-ico">🛡️</div><div><b>Antimicrobial fabrics</b><span>For healthcare &amp; food service</span></div></div>
+    <div class="feat"><div class="feat-ico">📦</div><div><b>Bulk supply ready</b><span>Any quantity, quick turnaround</span></div></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" style="background:var(--bgs);border-top:1px solid var(--border)">
+  <div class="srch-bar">
+    <div class="srch-bar-i">
+      <div class="srch-w">
+        <span class="srch-ico">🔍</span>
+        <input type="text" id="psearch" placeholder="Search products… e.g. scrubs, polo, chef jacket" oninput="doSearch(this.value)"/>
+      </div>
+      <div class="fchips">
+        <span class="fc on" onclick="filterBadge('',this)">All</span>
+        <span class="fc" onclick="filterBadge('Sale',this)">On sale</span>
+        <span class="fc" onclick="filterBadge('New',this)">New arrivals</span>
+        <span class="fc" onclick="openSizeGuide()">📏 Size guide</span>
+      </div>
+      <span class="scnt" id="scnt"></span>
+    </div>
+  </div>
+  <div class="tabs-outer">
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="panels-wrap">
+    <div class="panels-i">
+      <div id="panels"></div>
+      <div class="no-res" id="nores">😔 No products match — try a different keyword.</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="sec-w">
+    <div class="sec-hd rev">
+      <div><div class="ey">The process</div><h2>How it <em>works</em></h2></div>
+      <p class="sec-sub">From enquiry to delivery — a streamlined 5-step process built for enterprise buyers.</p>
+    </div>
+    <div class="how-steps" style="margin-top:44px">
+      <div class="hs rev"><div class="hs-ico">💬</div><div class="hs-num">01</div><h3>Send enquiry</h3><p>Share requirements, team size &amp; category</p></div>
+      <div class="hs rev"><div class="hs-ico">🎨</div><div class="hs-num">02</div><h3>Design &amp; samples</h3><p>Logo proofs &amp; fabric swatches sent for approval</p></div>
+      <div class="hs rev"><div class="hs-ico">📏</div><div class="hs-num">03</div><h3>Sizing</h3><p>Submit team roster for size grading</p></div>
+      <div class="hs rev"><div class="hs-ico">🧵</div><div class="hs-num">04</div><h3>Production</h3><p>In-house with QCS checks at every stage</p></div>
+      <div class="hs rev"><div class="hs-ico">📦</div><div class="hs-num">05</div><h3>Delivery</h3><p>Packed &amp; shipped anywhere in India</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOUR VIEWER -->
+<section class="cv-section">
+  <div class="sec-w">
+    <div class="sec-hd rev">
+      <div><div class="ey">Colour palette</div><h2>15+ Fabric <em>colours</em></h2></div>
+      <p class="sec-sub">Click any swatch to preview shade profile, quality badges &amp; availability.</p>
+    </div>
+    <div class="cv rev">
+      <div class="cv-i">
+        <div class="cv-pal">
+          <h3>Standard palette</h3>
+          <div class="sw-grid" id="cvg1"></div>
+          <h3>Extended shades</h3>
+          <div class="sw-grid" id="cvg2"></div>
+        </div>
+        <div class="cv-prev">
+          <div class="cv-disp" id="cvdisp"><span class="cv-fl" id="cvfl">ZAXO Fabric</span></div>
+          <div class="cv-name" id="cvname">Navy Blue</div>
+          <div class="cv-meta" id="cvmeta">Clinical standard · Anti-fade</div>
+          <div class="cv-badges" id="cvbdgs"></div>
+          <div class="cv-cats"><h4>Available in</h4><div class="cv-chips" id="cvchips"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B2B -->
+<section class="b2b-section" id="b2b">
+  <div class="b2b-i">
+    <div class="rev">
+      <div class="b2b-ey">B2B &amp; bulk orders</div>
+      <h2>Uniform solutions for<br><em>enterprises &amp; hospitals</em></h2>
+      <p>Whether you're outfitting 50 staff or 5,000 — ZAXO handles bulk contracts with custom embroidery, roster-based sizing, and dedicated account management.</p>
+      <div class="b2b-tags">
+        <span class="bt">TVS Motor</span><span class="bt">Cognizant</span><span class="bt">Alstom</span>
+        <span class="bt">Saint-Gobain</span><span class="bt">Nestlé</span><span class="bt">Maruti Suzuki</span>
+        <span class="bt">Titan</span><span class="bt">Unilever</span><span class="bt">Swiggy</span>
+        <span class="bt">IndianOil</span><span class="bt">Bajaj</span><span class="bt">+11 more</span>
+      </div>
+      <a href="#contact" class="btn-g">Request contract quote</a>
+    </div>
+    <div class="b2b-cards rev">
+      <div class="b2c"><h3>🏥 Healthcare groups</h3><p>Bulk scrubs, doctor coats &amp; nurse uniforms with department colour coding and antimicrobial fabric upgrades. Custom logo embroidery on every piece.</p><a href="#contact">Get hospital quote →</a></div>
+      <div class="b2c"><h3>🏢 Corporate &amp; IT companies</h3><p>Tailor-made formals for men and women in your brand colours — blazers, shirts, trousers, sarees, and chudithar with monogramming.</p><a href="#contact">Get corporate quote →</a></div>
+      <div class="b2c"><h3>🏭 Industrial &amp; factory supply</h3><p>Durable coveralls, boiler suits, safety vests, and aprons. Retro-reflective tape and hi-vis options available for safety compliance.</p><a href="#contact">Get industrial quote →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="sec-w">
+    <div class="sec-hd rev">
+      <div><div class="ey">Instant Estimate</div><h2>Bulk Order <em>Calculator</em></h2></div>
+      <p class="sec-sub">Get an instant price estimate based on your volume and customization needs.</p>
+    </div>
+    <div class="calc-i" style="margin-top:44px">
+      <div class="calc-card rev">
+        <label style="display:block;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Product Category</label>
+        <select id="calcCat" class="calc-sel" onchange="updateCalc()">
+          <option value="499">T-Shirts / Polo (from ₹499)</option>
+          <option value="899" selected>Corporate Shirts (from ₹899)</option>
+          <option value="1299">Medical Scrubs / Coats (from ₹1,299)</option>
+          <option value="1499">Industrial Coveralls (from ₹1,499)</option>
+          <option value="2999">Premium Blazers (from ₹2,999)</option>
+        </select>
+        
+        <div class="range-w">
+          <label>Quantity <span id="calcQtyVal">50</span></label>
+          <input type="range" id="calcQty" min="25" max="1000" step="25" value="50" oninput="updateCalc()">
+        </div>
+        
+        <label class="calc-check">
+          <input type="checkbox" id="calcEmbName" onchange="updateCalc()"> Add Name & Department Embroidery (+₹100)
+        </label>
+        <label class="calc-check">
+          <input type="checkbox" id="calcEmbLogo" checked onchange="updateCalc()"> Add Custom Logo Embroidery (+₹150)
+        </label>
+      </div>
+      <div class="calc-res rev">
+        <h3>Estimated Cost</h3>
+        <div class="calc-row"><span>Base Price (<span id="rBaseQty">50</span> pcs)</span> <strong id="rBaseP">₹44,950</strong></div>
+        <div class="calc-row"><span>Customization</span> <strong id="rCustP">₹3,750</strong></div>
+        <div class="calc-row"><span>Bulk Discount (<span id="rDiscPct">0</span>%)</span> <strong style="color:var(--gltr)">-₹0</strong></div>
+        <div class="calc-tot"><span>Total</span> <span id="rTotal">₹48,700</span></div>
+        <button class="calc-btn" onclick="sendQuoteToWA()">Request Formal Quote via WhatsApp →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY -->
+<section class="quality-section" id="quality">
+  <div class="sec-w">
+    <div class="sec-hd rev">
+      <div><div class="ey">Why ZAXO</div><h2>Built on <em>quality</em></h2></div>
+      <p class="sec-sub">Our in-house QCS refined over years of serving industry leaders across South India.</p>
+    </div>
+    <div class="qg" style="margin-top:44px">
+      <div class="qc rev"><div class="qc-ico">🧵</div><h3>Japanese stitching technology</h3><p>Precision machinery for clean seams, exact tension, and long-lasting wear — even through industrial washing cycles.</p></div>
+      <div class="qc rev"><div class="qc-ico">🎨</div><h3>Computerized logo embroidery</h3><p>State-of-the-art embroidery machines reproduce your logo with pixel-accurate consistency on every single piece in your order.</p></div>
+      <div class="qc rev"><div class="qc-ico">🛡️</div><h3>Antimicrobial fabrics</h3><p>Healthcare and food-service ranges use medically-tested textiles that reduce cross-contamination risk for your staff.</p></div>
+      <div class="qc rev"><div class="qc-ico">📋</div><h3>In-house QCS</h3><p>Sizing, patterns, stitch quality, and accessories verified through our Quality Control System before every dispatch.</p></div>
+      <div class="qc rev"><div class="qc-ico">✨</div><h3>Premium apparel finishing</h3><p>Latest finishing technologies ensure crisp, professional garments that hold their shape and colour wash after wash.</p></div>
+      <div class="qc rev"><div class="qc-ico">💰</div><h3>Value for money</h3><p>Bulk manufacturing efficiency means enterprise-grade quality at pricing that makes strong commercial sense.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section" id="clients">
+  <div class="sec-w">
+    <div class="sec-hd rev">
+      <div><div class="ey">Trusted by</div><h2>Our <em>clients</em></h2></div>
+      <p class="sec-sub">20+ industry-leading brands across automotive, healthcare, FMCG &amp; technology sectors.</p>
+    </div>
+    <div class="mq-outer rev">
+      <div class="mq" id="mqtrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="sec-w">
+    <div class="sec-hd rev">
+      <div><div class="ey">Client reviews</div><h2>What customers <em>say</em></h2></div>
+    </div>
+    <div class="tg" id="tgrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-i">
+    <div class="rev">
+      <div class="ey">Get in touch</div>
+      <h2>Let's build your<br>team's <em>look</em></h2>
+      <p>Tell us your requirements and we'll get back within 24 hours with a custom quote, fabric samples, and design proofs.</p>
+      <a href="https://maps.google.com/?q=446/1,+1st+Floor,+Athipalayam+Road,+Behind+RVR+Oil+Store,+Coimbatore+–+641006" target="_blank" class="cd addr-link"><div class="cd-ico">📍</div><div class="cd-t"><strong>Address</strong><span>446/1, 1st Floor, Athipalayam Road,<br>Behind RVR Oil Store, Coimbatore – 641006</span><div style="font-size:0.75rem;color:var(--g);margin-top:4px;font-weight:700">Open in Maps ↗</div></div></a>
+      <div class="cd"><div class="cd-ico">📞</div><div class="cd-t"><strong>Phone</strong><span>9087100223 / 224 / 225</span></div></div>
+      <div class="cd"><div class="cd-ico">✉️</div><div class="cd-t"><strong>Email</strong><span>zaxoclothing@gmail.com</span></div></div>
+    </div>
+    <div class="cf rev">
+      <div id="cform">
+        <div class="fg">
+          <div class="ff"><label>Your name</label><input type="text" id="fn" placeholder="Rajesh Kumar"/></div>
+          <div class="ff"><label>Company</label><input type="text" id="fc2" placeholder="Acme Pvt Ltd"/></div>
+          <div class="ff"><label>Phone</label><input type="tel" id="fp" placeholder="+91 98765 43210"/></div>
+          <div class="ff"><label>Category</label>
+            <select id="fcat">
+              <option value="">Select category…</option>
+              <option>Healthcare Uniforms</option>
+              <option>Corporate Uniforms</option>
+              <option>Industrial Uniforms</option>
+              <option>Hospitality Uniforms</option>
+              <option>Automobile Uniforms</option>
+              <option>T-Shirts</option>
+            </select>
+          </div>
+          <div class="ff full"><label>Requirements</label><textarea id="fmsg" placeholder="Approximate quantity, specific items, delivery timeline, custom logo details…"></textarea></div>
+        </div>
+        <button class="fsub" onclick="submitForm()">Send enquiry →</button>
+      </div>
+      <div class="fsuc" id="fsuc">
+        <div class="fsuc-ok">✅</div>
+        <h3>Enquiry sent!</h3>
+        <p>The ZAXO team will get back within 24 hours with a quote and fabric swatches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo"><img src="zaxo_logo.png" alt="ZAXO Clothing Logo" style="height: 48px; width: auto; border-radius: 8px;"></div>
+        <p class="ft-brand">Premium uniforms for healthcare, corporate, industrial, and hospitality sectors. Coimbatore-based, India-wide supply.</p>
+      </div>
+      <div class="ft-col"><h4>Products</h4><ul>
+        <li><a href="#products">Healthcare</a></li><li><a href="#products">Corporate</a></li>
+        <li><a href="#products">Industrial</a></li><li><a href="#products">Hospitality</a></li>
+        <li><a href="#products">Automobile</a></li><li><a href="#products">T-Shirts</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Services</h4><ul>
+        <li><a href="#b2b">Bulk B2B orders</a></li><li><a href="#b2b">Hospital contracts</a></li>
+        <li><a href="#contact">Custom embroidery</a></li><li><a href="#contact">Design consultation</a></li>
+        <li><a href="#how">How it works</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Contact</h4><ul>
+        <li><a href="tel:9087100223">9087100223 / 224 / 225</a></li>
+        <li><a href="mailto:zaxoclothing@gmail.com">zaxoclothing@gmail.com</a></li>
+        <li><a href="#">Athipalayam Rd, Coimbatore-641006</a></li>
+      </ul></div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2025 ZAXO Clothing, Coimbatore. All rights reserved. · Stay Fit Wear Fit</p>
+      <span class="gstin">GSTIN: 33BCXPG5504K1ZC</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="moverlay" onclick="if(event.target===this)closeMod()">
+  <div class="modal">
+    <button class="mcl" onclick="closeMod()" aria-label="Close">✕</button>
+    <div id="mcont"></div>
+  </div>
+</div>
+
+<!-- SIZE GUIDE MODAL -->
+<div class="overlay" id="soverlay" onclick="if(event.target===this)closeSG()" style="z-index:600">
+  <div class="modal size-modal">
+    <button class="mcl" onclick="closeSG()" aria-label="Close">✕</button>
+    <div class="ey">Reference guide</div>
+    <h2 style="margin-bottom:16px">📏 Size guide</h2>
+    <div class="size-tabs">
+      <button class="st on" onclick="switchST('shirts',this)">Shirts &amp; tops</button>
+      <button class="st" onclick="switchST('trousers',this)">Trousers</button>
+      <button class="st" onclick="switchST('scrubs',this)">Scrubs &amp; coats</button>
+      <button class="st" onclick="switchST('tshirts',this)">T-shirts</button>
+    </div>
+    <div id="stwrap"></div>
+    <p class="size-note">💡 <strong>Custom sizing available</strong> — if your team's measurements fall outside standard sizes, ZAXO offers made-to-measure for bulk orders above 25 pieces. Contact us with your size roster.</p>
+  </div>
+</div>
+
+<!-- CHAT BOT -->
+<div class="chatbot-wrap">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div><strong>ZAXO Support</strong><br><span style="font-size:0.75rem;font-weight:normal;opacity:0.8">Online</span></div>
+      <button onclick="toggleChat()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:1.2rem">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg bot">Hi! I'm ZAXO's virtual assistant. How can I help you with your uniform requirements today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInp" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+      <button onclick="sendChat()">➤</button>
+    </div>
+  </div>
+  <button class="chat-toggle" onclick="toggleChat()">
+    <span class="chat-icon">💬</span>
+  </button>
+</div>
+
+<!-- WHATSAPP -->
+<div class="wa">
+  <div class="wa-tip"><strong>Chat with ZAXO</strong>Send your requirements on WhatsApp for a quick quote!</div>
+  <button class="wa-btn" onclick="window.open('https://wa.me/919087100223?text=Hi%20ZAXO%2C%20I%20am%20interested%20in%20ordering%20uniforms.%20Please%20share%20more%20details.','_blank')" aria-label="Chat on WhatsApp">💬</button>
+</div>
+
+<script>
+/* ── DATA ── */
+const cats=[
+  {id:'healthcare',icon:'🏥',label:'Healthcare',ey:'Medical grade',
+   desc:'Antimicrobial-treated uniforms for hospitals, clinics, and diagnostic centres. We pay close attention to fabrics that prevent the spread of infections.',
+   fabric:'Antimicrobial Poly-Cotton, 4-way Stretch',custom:'Logo embroidery, name tags, dept colour coding',
+   prods:[
+    {n:'Classic Scrub Set',c:'Scrubs',ico:'🩺',d:'4-way stretch moisture-wicking scrub top & trousers. Available in 12 hospital-approved colours.',p:1599,o:1899,b:'Sale',sw:['#1a3a6b','#3db93a','#6b4e8c','#c0392b','#2c3e50','#ecf0f1']},
+    {n:'Doctor Lab Coat',c:'Doctor Coat',ico:'🥼',d:'Tailored coat with multi-pockets, stain-resistant twill and premium notched lapel.',p:1299,o:1599,b:'Sale',sw:['#ffffff','#f5f5dc','#b0c4de']},
+    {n:'Mandarin Collar Scrubs',c:'Scrubs',ico:'🧥',d:'Contemporary mandarin collar with hidden snap buttons — a polished alternative to the classic V-neck.',p:1999,o:2299,b:'New',sw:['#1a5276','#117a65','#6c3483','#922b21','#616a6b']},
+    {n:'Nurse Uniform Set',c:'Nurse Uniforms',ico:'👩‍⚕️',d:'Comfortable full-shift set for nursing staff. Functional pockets, soft drape, available in 5 shades.',p:1199,o:1499,b:'Sale',sw:['#4a90d9','#f8c471','#a9dfbf','#fadbd8','#ffffff']},
+    {n:'Patient Gown',c:'Patient Gown',ico:'🏨',d:'Soft breathable gowns for inpatient comfort. Easy back-tie design, washable at 90°C.',p:399,o:499,b:'',sw:['#fdfefe','#ebf5fb','#fdebd0']},
+    {n:'Housekeeping Coat',c:'Housekeeping',ico:'🧹',d:'Durable coat with front zip and large pockets for hospital cleaning staff.',p:699,o:899,b:'',sw:['#2ecc71','#3498db','#e74c3c','#f39c12','#7f8c8d']},
+   ]},
+  {id:'corporate',icon:'🏢',label:'Corporate',ey:'Office & professional',
+   desc:'Fully customized formals for men and women that reflect your company culture. From front desk to boardroom — contemporary designs built on good-quality durable material.',
+   fabric:'Premium poly-viscose, cotton-blend twill',custom:'Logo embroidery on chest or cuffs, monogramming',
+   prods:[
+    {n:'Full Sleeve Shirt',c:'Corporate Shirts',ico:'👔',d:'Poly-viscose blend full sleeve shirts for men and women. Slim or regular fit.',p:899,o:1099,b:'Sale',sw:['#ffffff','#4a90d9','#2c3e50','#7f8c8d','#c0392b','#f5f5dc']},
+    {n:'Half Sleeve Shirt',c:'Corporate Shirts',ico:'👕',d:'Breathable half-sleeve option — ideal for warm climates and casual corporate environments.',p:749,o:899,b:'',sw:['#ffffff','#d6eaf8','#d5f5e3','#fcf3cf','#f9ebea']},
+    {n:'Blazer & Suit',c:'Blazers',ico:'🤵',d:'Contemporary corporate blazers for men and women. Structured silhouette, durable lining.',p:3499,o:4199,b:'New',sw:['#1a252f','#2c3e50','#7f8c8d','#212f3c','#4a235a']},
+    {n:'Saree & Chudithar',c:"Women's Formals",ico:'🥻',d:'Elegant office sarees and chudithar sets with coordinated dupatta. Full customisation available.',p:1499,o:1899,b:'',sw:['#e8daef','#d1f2eb','#fdebd0','#ebf5fb','#fdedec']},
+    {n:'Trousers',c:'Trousers',ico:'👖',d:'Formal trousers for men and women. Flat-front, half-lined, available in 8 corporate shades.',p:699,o:849,b:'',sw:['#1a252f','#2c3e50','#7f8c8d','#4a235a','#922b21','#ffffff']},
+    {n:'Skirts',c:"Women's Formals",ico:'👗',d:'Professional pencil and A-line skirts coordinated with the corporate shirt range.',p:599,o:749,b:'',sw:['#1a252f','#2c3e50','#7f8c8d','#4a235a']},
+   ]},
+  {id:'industrial',icon:'🏭',label:'Industrial',ey:'Factory & worksite',
+   desc:'Skin-friendly, durable garments for demanding working conditions. We also custom-make engineer uniforms, overalls, gloves, aprons, PVC shoe covers and disposable face masks.',
+   fabric:'Heavy-duty poly-cotton, canvas, denim',custom:'Company logo, hi-vis reflective tape, dept colour coding',
+   prods:[
+    {n:'Worker Shirt & Trouser',c:'Worker Set',ico:'🔧',d:'Hard-wearing shirt and trouser set for factory floor workers. Reinforced seams, easy-care fabric.',p:899,o:1099,b:'Sale',sw:['#7f8c8d','#2e4057','#6e3b1f','#1a5276','#117a65']},
+    {n:'Boiler Suit / Cover All',c:'Coveralls',ico:'🦺',d:'Full-body coverall for heavy industrial environments. Double-stitched seams, reinforced knee panels.',p:1499,o:1799,b:'',sw:['#7f8c8d','#2c3e50','#1a5276','#117a65','#f39c12']},
+    {n:'Vest Jacket',c:'Safety Vests',ico:'🔆',d:'High-visibility safety vest with retro-reflective tape. Meets worksite safety standards.',p:599,o:749,b:'New',sw:['#f9ca24','#f0932b','#6ab04c','#eb4d4b']},
+    {n:'Dungarees',c:'Dungarees',ico:'👷',d:'Classic bib dungarees for engineering and maintenance staff. Tough canvas with tool pockets.',p:1199,o:1499,b:'',sw:['#2c3e50','#1a5276','#6e3b1f','#7f8c8d']},
+    {n:'Office Staff Shirts',c:'Office Staff',ico:'🏗️',d:'Smart shirts for factory office and supervisory staff — same durability, sharper appearance.',p:799,o:949,b:'',sw:['#ffffff','#d6eaf8','#d5dbdb','#2c3e50']},
+    {n:'Industrial Apron',c:'Aprons',ico:'🧤',d:'Heavy-duty aprons for welding, chemicals, and food processing environments.',p:349,o:449,b:'',sw:['#1a252f','#6e3b1f','#7f8c8d','#117a65']},
+   ]},
+  {id:'hospitality',icon:'🍽️',label:'Hospitality',ey:'Hotels & restaurants',
+   desc:'Uniforms that project professionalism and warmth — the twin pillars of hospitality. Customized to your specific needs, liking and branding.',
+   fabric:'Wrinkle-resistant poly-cotton, chef-grade twill',custom:'Hotel/restaurant logo embroidery, Pantone colour matching',
+   prods:[
+    {n:'Chef Jacket',c:'Chef Uniforms',ico:'👨‍🍳',d:'Professional double-breasted chef jacket in cotton-polyester blend. Knotted button closure.',p:999,o:1299,b:'Sale',sw:['#ffffff','#1a252f','#e74c3c','#2c3e50','#117a65']},
+    {n:'Waiter Shirt & Trouser',c:'F&B Service',ico:'🍷',d:'Smart waiter sets for fine-dining and casual restaurant environments. 8 shades available.',p:1199,o:1399,b:'',sw:['#ffffff','#1a252f','#2c3e50','#7f8c8d','#c0392b','#117a65']},
+    {n:'Blazer & Vest Coat',c:'Front of House',ico:'🤵',d:'Front-of-house blazer and waistcoat for hotel reception, concierge, and management staff.',p:2999,o:3599,b:'New',sw:['#1a252f','#922b21','#117a65','#4a235a','#7f8c8d']},
+    {n:'Chef Trousers',c:'Chef Uniforms',ico:'🧑‍🍳',d:'Comfortable stain-resistant chef trousers with elastic waistband and drawstring.',p:599,o:749,b:'',sw:['#ffffff','#2c3e50','#1a252f','#7f8c8d']},
+    {n:'Tunic & Trousers',c:'Housekeeping',ico:'🛎️',d:'Neat professional tunics for housekeeping staff. Comfortable fit for long shifts.',p:899,o:1099,b:'',sw:['#3498db','#2ecc71','#e67e22','#8e44ad','#e74c3c']},
+    {n:'Apron & Housekeeping Coat',c:'Kitchen & Housekeeping',ico:'🧺',d:'Kitchen and housekeeping aprons with bib, adjustable straps, and large front pockets.',p:449,o:549,b:'',sw:['#ffffff','#2c3e50','#1a252f','#3498db']},
+   ]},
+  {id:'automobile',icon:'🚗',label:'Automobile',ey:'Showroom & service',
+   desc:'Custom uniforms for automotive showrooms and service centres — balancing professionalism with ease of movement. Brand colour matching available.',
+   fabric:'Poly-cotton, performance twill',custom:'Pantone/RAL brand colour matching, logo embroidery, name badges',
+   prods:[
+    {n:'Showroom Staff Shirt',c:'Showroom',ico:'🏎️',d:'Smart formal shirts for sales and showroom staff in your exact brand colours.',p:849,o:999,b:'',sw:['#2c3e50','#c0392b','#1a5276','#117a65','#ffffff','#f39c12']},
+    {n:'Service Technician Set',c:'Service',ico:'🔩',d:'Durable service uniform for workshop technicians — reinforced and easy-care for daily wear.',p:999,o:1199,b:'Sale',sw:['#7f8c8d','#2c3e50','#1a5276','#117a65','#e74c3c']},
+    {n:'Corporate Polo Shirt',c:'Polo',ico:'🏁',d:'Brand-coloured polo shirts for showroom staff, test drive coordinators, and event teams.',p:699,o:849,b:'New',sw:['#2c3e50','#c0392b','#1a5276','#117a65','#f39c12','#ffffff']},
+    {n:'Safety Vest & Jacket',c:'Workshop Safety',ico:'🦺',d:'Hi-vis safety vests and padded jackets for workshop and outdoor service staff.',p:549,o:699,b:'',sw:['#f9ca24','#f0932b','#eb4d4b','#6ab04c']},
+   ]},
+  {id:'tshirts',icon:'👕',label:'T-Shirts',ey:'Promotional & events',
+   desc:'Corporate polo shirts, promotional tees, and crew-necks — fully branded and event-ready in any quantity. Screen printing, DTF printing, and computerized embroidery available.',
+   fabric:'100% cotton, CVC cotton-polyester blend',custom:'Screen print, DTF print, embroidery — any placement, any artwork',
+   prods:[
+    {n:'Corporate Polo Shirt',c:'Corporate Polo',ico:'🏌️',d:'Premium pique polo with 3-button placket. Classic corporate identity staple.',p:549,o:699,b:'Sale',sw:['#1a252f','#2c3e50','#c0392b','#117a65','#4a235a','#f39c12','#ffffff','#3498db']},
+    {n:'Promotional T-Shirt',c:'Promo Tees',ico:'📣',d:'Cost-effective promotional tees for events, campaigns, and giveaways. Full-colour print.',p:299,o:399,b:'Sale',sw:['#ffffff','#1a252f','#e74c3c','#f39c12','#3498db','#2ecc71','#8e44ad','#e67e22']},
+    {n:'Sports T-Shirt',c:'Sports',ico:'⚽',d:'Moisture-wicking performance tee for company sports days, marathons, and team events.',p:449,o:549,b:'',sw:['#e74c3c','#3498db','#2ecc71','#f39c12','#1a252f','#8e44ad']},
+    {n:'Event T-Shirt',c:'Events',ico:'🎪',d:'Eye-catching event tees with full-colour screen or DTF printing. Fast 7-day turnaround.',p:349,o:449,b:'New',sw:['#ffffff','#1a252f','#e74c3c','#f39c12','#3498db','#2ecc71']},
+    {n:'Crew Neck T-Shirt',c:'Uniform Tees',ico:'👕',d:'Clean minimal crew-neck uniform tees for warehouses, delivery staff, and retail teams.',p:249,o:349,b:'',sw:['#1a252f','#2c3e50','#7f8c8d','#c0392b','#117a65','#ffffff']},
+    {n:'Uniform T-Shirt Set',c:'Uniform Tees',ico:'📦',d:'Matched T-shirt sets for complete team uniformity — all sizes, same dye lot, consistent embroidery.',p:499,o:599,b:'',sw:['#1a252f','#2c3e50','#c0392b','#117a65','#3498db']},
+   ]},
+];
+
+const colours=[
+  {h:'#1a3a6b',n:'Navy Blue',m:'Clinical standard · Anti-fade',bg:['Colour Fastness','Anti-Fade','Washfast'],cs:['Healthcare','Corporate','Hospitality']},
+  {h:'#2471b5',n:'Royal Blue',m:'Professional tone · Colour fast',bg:['Colour Fast','Durable'],cs:['Healthcare','Corporate','T-Shirts']},
+  {h:'#2da82a',n:'ZAXO Green',m:'Brand signature · Vibrant',bg:['Brand Colour','Anti-Fade'],cs:['Healthcare','Industrial','T-Shirts']},
+  {h:'#2ecc71',n:'Mint Green',m:'Clinical tone · Nurse-preferred',bg:['Washfast','Soft Touch'],cs:['Healthcare','Hospitality']},
+  {h:'#2c3e50',n:'Charcoal',m:'Corporate authority · Wrinkle resistant',bg:['Premium Weave','Wrinkle Resistant'],cs:['Corporate','Hospitality','Automobile']},
+  {h:'#1a252f',n:'Midnight Black',m:'Sleek professional standard',bg:['Colour Fastness','Anti-Fade'],cs:['Corporate','Hospitality','T-Shirts']},
+  {h:'#f5f5f5',n:'Optical White',m:'Medical standard · High-brightness',bg:['Hospital Grade','Bleach Safe'],cs:['Healthcare','Hospitality','Corporate'],lt:true},
+  {h:'#f5cba7',n:'Warm Beige',m:'Neutral corporate · Soft drape',bg:['Soft Touch','Colour Fast'],cs:['Corporate','Hospitality'],lt:true},
+  {h:'#922b21',n:'Burgundy',m:'Premium hospitality shade',bg:['Rich Colour','Durable Dye'],cs:['Hospitality','Corporate']},
+  {h:'#e74c3c',n:'Signal Red',m:'Hi-vis & event use',bg:['Vivid Dye','Colour Fast'],cs:['T-Shirts','Industrial']},
+];
+const colours2=[
+  {h:'#f39c12',n:'Amber Gold',m:'Hi-vis & event standard',bg:['Hi-Vis Grade','Anti-Fade'],cs:['Industrial','T-Shirts','Automobile']},
+  {h:'#8e44ad',n:'Corporate Purple',m:'Premium brand identity',bg:['Premium Dye','Washfast'],cs:['Corporate','T-Shirts']},
+  {h:'#117a65',n:'Forest Green',m:'Industrial & outdoor',bg:['Durable Dye','Fade Resistant'],cs:['Industrial','Hospitality']},
+  {h:'#6b7280',n:'Steel Grey',m:'Versatile workwear standard',bg:['Colour Fastness','Durable'],cs:['Industrial','Corporate','Automobile']},
+  {h:'#fadbd8',n:'Dusty Rose',m:"Healthcare & women's range",bg:['Soft Touch','Washfast'],cs:['Healthcare','Corporate'],lt:true},
+  {h:'#d6eaf8',n:'Sky Blue',m:'Light corporate & nurse',bg:['Colour Fast','Easy Care'],cs:['Healthcare','Corporate'],lt:true},
+];
+
+const clients=['TVS','Bajaj','Maruti Suzuki','TVS Tyres','Cognizant','Rubfila International','Welcare','Titan Company','LGB','Alstom','Saint-Gobain','Nestlé','Unilever','Swiggy','IndianOil','Bharat Petroleum','Cheran Pumps','Ackyee','Lee Postale','Apex Technologies','AEW','Indol'];
+
+const testi=[
+  {n:'Sivakumar',l:'Coimbatore',t:'Good material, good stitching. Very genuine and user friendly. Quick service. Happy customer.',i:'S'},
+  {n:'Saravana Senthil',l:'Coimbatore',t:'Wonderful collection with great service. Products seem perfect in quality of fabric. Completely satisfied.',i:'S'},
+  {n:'Raj Kumar',l:'Tirupur',t:'Apt choice for right fit and professional service in the uniform sector. Kudos to the team.',i:'R'},
+  {n:'Monica Santhosh',l:'Chennai',t:'Ordered scrubs in royal blue with specific size — perfect fit, same colour, promptly delivered.',i:'M'},
+  {n:'Ragaven Dran',l:'Salem',t:'Excellent service! Prompt response. Very nice quality.',i:'R'},
+  {n:'Ashok Kumar Rathinasamy',l:'Mettupalayam',t:'Good quality uniforms and quick service. Exactly what we needed for our team.',i:'A'},
+];
+
+const sizeData={
+  shirts:{h:['Size','Chest (in)','Shoulder (in)','Length (in)','Full sleeve (in)'],r:[['XS','32–34','14.5','27','23'],['S','34–36','15','28','23.5'],['M','38–40','16','29','24'],['L','42–44','17','30','24.5'],['XL','46–48','18','31','25'],['2XL','50–52','19','32','25.5'],['3XL','54–56','20','33','26'],['4XL','58–60','21','34','26.5']]},
+  trousers:{h:['Size','Waist (in)','Hip (in)','Inseam (in)','Thigh (in)'],r:[['XS','26–28','34–36','29','19'],['S','28–30','36–38','30','20'],['M','32–34','40–42','31','21'],['L','36–38','44–46','32','22'],['XL','40–42','48–50','32','23'],['2XL','44–46','52–54','33','24'],['3XL','48–50','56–58','33','25'],['4XL','52–54','60–62','34','26']]},
+  scrubs:{h:['Size','Chest (in)','Waist (in)','Hip (in)','Length'],r:[['XS','30–32','28–30','34–36','Petite/Reg'],['S','34–36','32–34','38–40','Reg/Tall'],['M','38–40','36–38','42–44','Reg/Tall'],['L','42–44','40–42','46–48','Reg/Tall'],['XL','46–48','44–46','50–52','Reg/Tall'],['2XL','50–52','48–50','54–56','Tall'],['3XL','54–56','52–54','58–60','Tall'],['4XL','58–60','56–58','62–64','Tall']]},
+  tshirts:{h:['Size','Chest (in)','Body length','Half sleeve','Shoulder'],r:[['XS','33–34','26','7','15'],['S','36–37','27','7.5','16'],['M','39–40','28','8','17'],['L','43–44','29','8.5','18'],['XL','47–48','30','9','19'],['2XL','51–52','31','9.5','20'],['3XL','55–56','32','10','21'],['4XL','59–60','33','10.5','22']]},
+};
+
+let activeBadge='';
+
+/* ── BUILD TABS & PRODUCTS ── */
+function buildProducts(){
+  const tb=document.getElementById('tabs');
+  const pn=document.getElementById('panels');
+  cats.forEach((cat,i)=>{
+    const btn=document.createElement('button');
+    btn.className='tab'+(i===0?' on':'');
+    btn.id='tab-'+cat.id;
+    btn.innerHTML=`${cat.icon} ${cat.label}`;
+    btn.onclick=()=>switchCat(cat.id);
+    tb.appendChild(btn);
+
+    const panel=document.createElement('div');
+    panel.className='cat-panel'+(i===0?' on':'');
+    panel.id='panel-'+cat.id;
+
+    const info=document.createElement('div');
+    info.className='prod-info';
+    info.innerHTML=`<p>${cat.desc}</p><div class="info-chips"><div class="ic"><strong>Fabric</strong><span>${cat.fabric}</span></div><div class="ic"><strong>Customisation</strong><span>${cat.custom}</span></div></div>`;
+    panel.appendChild(info);
+
+    const grid=document.createElement('div');
+    grid.className='pg';
+    cat.prods.forEach(p=>{
+      const sw=p.sw.map((c,si)=>`<span class="psw${si===0?' on':''}" style="background:${c};${c==='#ffffff'||c==='#f5f5f5'?'border-color:#ccc':''}" title="${c}"></span>`).join('');
+      const bd=p.b?`<span class="pbadge ${p.b==='Sale'?'bs':p.b==='New'?'bn':'bc'}" style="z-index:2">${p.b}</span>`:'';
+      const card=document.createElement('div');
+      card.className='pc';
+      card.dataset.badge=p.b||'';
+      card.dataset.search=(p.n+' '+p.c+' '+p.d).toLowerCase();
+      const imgUrl = `images/${cat.id}.png`;
+      card.innerHTML=`<div class="pimg" style="position:relative">${bd}<img src="${imgUrl}" alt="${p.n}" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"><div style="position:absolute;z-index:1;background:rgba(255,255,255,0.9);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;bottom:12px;right:12px;font-size:1.2rem;box-shadow:var(--shadow-sm);">${p.ico}</div></div><div class="pbody"><div class="pcat">${p.c}</div><div class="pname">${p.n}</div><div class="pdesc">${p.d}</div><div class="pswatches">${sw}</div><div class="pfoot"><div class="pprice"><span class="pcurr">₹${p.p.toLocaleString('en-IN')}</span><span class="pold">₹${p.o.toLocaleString('en-IN')}</span></div><button class="pbtn" onclick="openMod('${cat.id}','${p.n.replace(/'/g,"\\'")}')">Details</button></div></div>`;
+      grid.appendChild(card);
+    });
+    panel.appendChild(grid);
+    pn.appendChild(panel);
+  });
+}
+
+function switchCat(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.cat-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('tab-'+id)?.classList.add('on');
+  document.getElementById('panel-'+id)?.classList.add('on');
+  document.getElementById('scnt').textContent='';
+  document.getElementById('psearch').value='';
+  activeBadge='';
+  document.querySelectorAll('.fc').forEach(c=>c.classList.remove('on'));
+  document.querySelector('.fc').classList.add('on');
+  document.querySelectorAll('.pc').forEach(c=>c.style.display='');
+  document.getElementById('nores').style.display='none';
+}
+
+/* ── SEARCH & FILTER ── */
+function doSearch(q){
+  const s=q.toLowerCase().trim();
+  let tot=0,any=false;
+  cats.forEach(cat=>{
+    const panel=document.getElementById('panel-'+cat.id);
+    if(!panel)return;
+    panel.querySelectorAll('.pc').forEach(c=>{
+      const txt=c.dataset.search||'';
+      const bg=c.dataset.badge||'';
+      const mq=!s||txt.includes(s);
+      const mb=!activeBadge||bg===activeBadge;
+      if(mq&&mb){c.style.display='';any=true;tot++;}
+      else c.style.display='none';
+    });
+  });
+  document.getElementById('scnt').textContent=s||activeBadge?`${tot} result${tot!==1?'s':''}` : '';
+  document.getElementById('nores').style.display=any?'none':'block';
+  if(s||activeBadge){
+    document.querySelectorAll('.cat-panel').forEach(p=>p.classList.add('on'));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  }
+}
+
+function filterBadge(b,el){
+  activeBadge=b;
+  document.querySelectorAll('.fc').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  doSearch(document.getElementById('psearch')?.value||'');
+}
+
+/* ── COLOUR VIEWER ── */
+function buildColours(){
+  function mk(c,g){
+    const el=document.createElement('div');
+    el.className='bsw'+(c.lt?' lgt':'');
+    el.style.background=c.h;
+    el.title=c.n;
+    el.onclick=()=>showCol(c,el);
+    g.appendChild(el);return el;
+  }
+  const g1=document.getElementById('cvg1');
+  const g2=document.getElementById('cvg2');
+  colours.forEach((c,i)=>{const el=mk(c,g1);if(i===0){el.classList.add('sel');showCol(c,el);}});
+  colours2.forEach(c=>mk(c,g2));
+}
+
+function showCol(c,el){
+  document.querySelectorAll('.bsw').forEach(s=>s.classList.remove('sel'));
+  el.classList.add('sel');
+  const d=document.getElementById('cvdisp');d.style.background=c.h;
+  const fl=document.getElementById('cvfl');fl.textContent=c.n;
+  fl.style.background=c.lt?'rgba(0,0,0,.08)':'rgba(255,255,255,.85)';
+  fl.style.color=c.lt?'#333':'#111';
+  document.getElementById('cvname').textContent=c.n;
+  document.getElementById('cvmeta').textContent=c.m;
+  document.getElementById('cvbdgs').innerHTML=c.bg.map(b=>`<span class="cv-badge">${b}</span>`).join('');
+  document.getElementById('cvchips').innerHTML=c.cs.map(ct=>`<span class="cv-chip" onclick="switchCat('${cats.find(x=>x.label===ct)?.id||ct.toLowerCase()}')">${ct} →</span>`).join('');
+}
+
+/* ── MARQUEE ── */
+function buildMarquee(){
+  const tr=document.getElementById('mqtrack');
+  [...clients,...clients].forEach(c=>{const ch=document.createElement('span');ch.className='mchip';ch.textContent=c;tr.appendChild(ch);});
+}
+
+/* ── TESTIMONIALS ── */
+function buildTesti(){
+  const g=document.getElementById('tgrid');
+  testi.forEach(t=>{
+    const c=document.createElement('div');c.className='tc rev';
+    c.innerHTML=`<div class="stars">★★★★★</div><p class="tc-t">"${t.t}"</p><div class="tc-a"><div class="tav">${t.i}</div><div><div class="tname">${t.n}</div><div class="tloc">${t.l}</div></div></div>`;
+    g.appendChild(c);
+  });
+}
+
+/* ── PRODUCT MODAL ── */
+function openMod(catId,pName){
+  const cat=cats.find(c=>c.id===catId);
+  const p=cat.prods.find(pr=>pr.n===pName);
+  const sws=p.sw.map((c,i)=>`<span class="msw${i===0?' on':''}" style="background:${c};${c==='#ffffff'||c==='#f5f5f5'?'border-color:#ccc':''}"></span>`).join('');
+  document.getElementById('mcont').innerHTML=`
+    <div class="mcat">${cat.icon} ${cat.label} · ${p.c}</div>
+    <h2>${p.n}</h2>
+    <div class="mpr"><span class="mpr-c">₹${p.p.toLocaleString('en-IN')}</span><span class="mpr-o">₹${p.o.toLocaleString('en-IN')}</span></div>
+    <p class="mdesc">${p.d}</p>
+    <div class="mdr">
+      <div class="mch"><strong>Fabric</strong><span>${cat.fabric}</span></div>
+      <div class="mch"><strong>Customisation</strong><span>${cat.custom}</span></div>
+    </div>
+    <div class="mswl">Colour options</div>
+    <div class="msws">${sws}</div>
+    <div class="mitl">Includes</div>
+    <ul class="mits">
+      <li>Custom logo embroidery available</li>
+      <li>Bulk pricing on orders above 25 pieces</li>
+      <li>Size grading from XS to 4XL</li>
+      <li>QCS verified before dispatch</li>
+    </ul>
+    <div class="macts">
+      <button class="btn-g" onclick="closeMod();document.getElementById('contact').scrollIntoView({behavior:'smooth'});setTimeout(()=>{document.getElementById('fcat').value='${cat.label} Uniforms';},400)">Get quote</button>
+      <button class="btn-o" onclick="closeMod()">Close</button>
+    </div>`;
+  document.getElementById('moverlay').classList.add('op');
+  document.body.style.overflow='hidden';
+}
+function closeMod(){document.getElementById('moverlay').classList.remove('op');document.body.style.overflow='';}
+
+/* ── SIZE GUIDE ── */
+function openSizeGuide(){
+  switchST('shirts',document.querySelector('.st'));
+  document.getElementById('soverlay').classList.add('op');
+  document.body.style.overflow='hidden';
+}
+function closeSG(){document.getElementById('soverlay').classList.remove('op');document.body.style.overflow='';}
+function switchST(key,el){
+  document.querySelectorAll('.st').forEach(t=>t.classList.remove('on'));
+  el?.classList.add('on');
+  const d=sizeData[key];
+  document.getElementById('stwrap').innerHTML=`<table class="size-table"><thead><tr>${d.h.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${d.r.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+}
+
+/* ── FORM ── */
+function submitForm(){
+  const n=document.getElementById('fn').value.trim();
+  const comp=document.getElementById('fc2').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  const c=document.getElementById('fcat').value;
+  const msg=document.getElementById('fmsg').value.trim();
+  
+  if(!n||!p||!c){alert('Please fill out your name, phone, and select a category.');return;}
+  
+  let waText = `Hi ZAXO, I would like to request a quote.`;
+  waText += `\n\n*Name:* ${n}`;
+  if(comp) waText += `\n*Company:* ${comp}`;
+  waText += `\n*Phone:* ${p}`;
+  waText += `\n*Category:* ${c}`;
+  if(msg) waText += `\n*Requirements:* ${msg}`;
+  
+  const waUrl = `https://wa.me/919087100223?text=${encodeURIComponent(waText)}`;
+  window.open(waUrl, '_blank');
+  
+  document.getElementById('cform').style.display='none';
+  document.getElementById('fsuc').style.display='block';
+}
+
+/* ── CALCULATOR ── */
+function sendQuoteToWA() {
+  const cat = document.getElementById('calcCat').options[document.getElementById('calcCat').selectedIndex].text;
+  const qty = document.getElementById('calcQty').value;
+  const baseP = document.getElementById('rBaseP').textContent;
+  const custP = document.getElementById('rCustP').textContent;
+  const total = document.getElementById('rTotal').textContent;
+  
+  const waText = `Hi ZAXO, I generated an estimate on your website and would like to proceed with a formal quote.\n\n*Category:* ${cat}\n*Quantity:* ${qty} pieces\n*Base Price:* ${baseP}\n*Customizations:* ${custP}\n*Estimated Total:* ${total}\n\nPlease let me know the next steps!`;
+  
+  const waUrl = `https://wa.me/919087100223?text=${encodeURIComponent(waText)}`;
+  window.open(waUrl, '_blank');
+}
+
+function updateCalc(){
+  const basePrice = parseInt(document.getElementById('calcCat').value);
+  const qty = parseInt(document.getElementById('calcQty').value);
+  const hasEmbName = document.getElementById('calcEmbName').checked;
+  const hasEmbLogo = document.getElementById('calcEmbLogo').checked;
+  
+  document.getElementById('calcQtyVal').textContent = qty + (qty === 1000 ? '+' : '');
+  document.getElementById('rBaseQty').textContent = qty;
+  
+  const totalBase = basePrice * qty;
+  
+  let custPerPc = 0;
+  if(hasEmbName) custPerPc += 100;
+  if(hasEmbLogo) custPerPc += 150;
+  const totalCust = custPerPc * qty;
+  
+  let discPct = 0;
+  if(qty >= 500) discPct = 15;
+  else if(qty >= 200) discPct = 10;
+  else if(qty >= 100) discPct = 5;
+  
+  const discount = Math.floor((totalBase + totalCust) * (discPct / 100));
+  const finalTotal = totalBase + totalCust - discount;
+  
+  document.getElementById('rBaseP').textContent = '₹' + totalBase.toLocaleString('en-IN');
+  document.getElementById('rCustP').textContent = '₹' + totalCust.toLocaleString('en-IN');
+  document.getElementById('rDiscPct').textContent = discPct;
+  document.getElementById('rDiscPct').parentElement.nextElementSibling.textContent = '-₹' + discount.toLocaleString('en-IN');
+  document.getElementById('rTotal').textContent = '₹' + finalTotal.toLocaleString('en-IN');
+}
+updateCalc();
+
+/* ── ACTIVE NAV ── */
+const navSections=['products','how','b2b','calculator','quality','clients','contact'];
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  navSections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-120)cur=id;
+  });
+  navAs.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active');});
+},{passive:true});
+
+/* ── SCROLL REVEAL ── */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});
+},{threshold:.1});
+function observeRevs(){document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));}
+
+/* ── THEME ── */
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', savedTheme);
+if(document.getElementById('themeIcon')) {
+  document.getElementById('themeIcon').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  document.getElementById('themeIcon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+}
+
+/* ── CHAT BOT ── */
+function toggleChat(){
+  document.getElementById('chatWindow').classList.toggle('open');
+}
+function sendChat(){
+  const inp = document.getElementById('chatInp');
+  const txt = inp.value.trim();
+  if(!txt) return;
+  const body = document.getElementById('chatBody');
+  body.innerHTML += `<div class="chat-msg user">${txt}</div>`;
+  inp.value = '';
+  body.scrollTop = body.scrollHeight;
+  
+  setTimeout(()=>{
+    body.innerHTML += `<div class="chat-msg bot">Thanks for reaching out! A representative will connect with you shortly regarding: "${txt}". You can also use our formal quote form.</div>`;
+    body.scrollTop = body.scrollHeight;
+  }, 1000);
+}
+
+/* ── INIT ── */
+buildProducts();
+buildColours();
+buildMarquee();
+buildTesti();
+observeRevs();
+</script>
+</body>
+</html>
