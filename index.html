@@ -367,11 +367,27 @@ footer{background:var(--ink);color:#fff;padding:52px 24px 24px}
   .cv-pal{border-right:none;border-bottom:1px solid var(--border)}
   .ft-top{grid-template-columns:1fr 1fr}
 }
+.mob-shop-btn { display: none; }
 @media(max-width:768px){
   .nav-links{display:none}
   .nav-srch{display:none}
   .hamburger{display:flex}
   .tabs-outer{top:64px}
+  .mob-shop-btn {
+    display: flex;
+    align-items: center;
+    background: var(--glt);
+    color: var(--g);
+    border: 1px solid var(--g);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-right: 4px;
+  }
+  .qbtn { display: none; }
 }
 @media(max-width:560px){
   .feat-i{grid-template-columns:1fr}
@@ -435,6 +451,7 @@ footer{background:var(--ink);color:#fff;padding:52px 24px 24px}
     <div class="nav-r">
       <button onclick="toggleTheme()" class="theme-btn" aria-label="Toggle theme"><span id="themeIcon"></span></button>
       <div class="nav-srch">🔍&nbsp; Search uniforms…</div>
+      <a href="https://zaxo-six.vercel.app/" target="_blank" class="mob-shop-btn">Shop Online ↗</a>
       <a href="#contact" class="qbtn">Get quote</a>
       <button class="hamburger" onclick="document.getElementById('mobMenu').classList.add('open')" aria-label="Open menu">
         <span></span><span></span><span></span>
