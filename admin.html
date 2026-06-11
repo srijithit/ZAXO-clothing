@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAXO Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f4f6; --surface: #ffffff; --border: #e5e7eb;
+      --text: #111827; --text-muted: #6b7280;
+      --primary: #2da82a; --primary-hover: #1e8c1c;
+      --danger: #ef4444; --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
+    
+    /* Sidebar */
+    .sidebar { width: 260px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .sidebar-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; }
+    .sidebar-nav { padding: 10px; flex: 1; overflow-y: auto; }
+    .nav-item { padding: 10px 15px; border-radius: var(--radius); cursor: pointer; margin-bottom: 5px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+    .nav-item:hover { background: #f9fafb; }
+    .nav-item.active { background: #e8f7e8; color: var(--primary); }
+    .sidebar-footer { padding: 20px; border-top: 1px solid var(--border); }
+    .save-btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 12px; border-radius: var(--radius); font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .save-btn:hover { background: var(--primary-hover); }
+
+    /* Main Content */
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .main-header { padding: 20px 30px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .content { padding: 30px; flex: 1; overflow-y: auto; }
+    
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .card-title { font-weight: 600; font-size: 1.1rem; }
+    .card-badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+    .badge-sale { background: #fee2e2; color: #ef4444; }
+    .badge-new { background: #dbeafe; color: #3b82f6; }
+    .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-price { font-weight: 700; margin-bottom: 15px; }
+    .card-price span { text-decoration: line-through; color: var(--text-muted); font-weight: 400; font-size: 0.85rem; margin-left: 8px; }
+    .card-actions { display: flex; gap: 10px; }
+    .btn { flex: 1; padding: 8px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; cursor: pointer; font-weight: 500; font-size: 0.85rem; transition: 0.2s; }
+    .btn:hover { background: #f9fafb; }
+
+    /* Modal */
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.2s; z-index: 100; }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal { background: var(--surface); width: 100%; max-width: 500px; border-radius: 12px; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transform: translateY(20px); transition: 0.2s; }
+    .modal-overlay.active .modal { transform: translateY(0); }
+    .modal-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 5px; }
+    .form-control { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; font-size: 0.95rem; }
+    .form-row { display: flex; gap: 15px; }
+    .form-row > div { flex: 1; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 25px; }
+    .btn-primary { background: var(--primary); color: #fff; border: none; }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 20px; right: 20px; background: #10b981; color: white; padding: 12px 24px; border-radius: var(--radius); font-weight: 500; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transform: translateY(100px); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .toast.show { transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div style="width:24px;height:24px;background:var(--primary);color:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;">Z</div>
+      Admin
+    </div>
+    <div class="sidebar-nav" id="nav">
+      <!-- Categories will be injected here -->
+    </div>
+    <div class="sidebar-footer">
+      <button class="save-btn" onclick="saveToGitHub()">🚀 Save & Publish</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main-header">
+      <h2 id="catTitle">Loading...</h2>
+      <button class="btn" style="width:auto;padding:8px 16px;" onclick="openAddModal()">+ Add Product</button>
+    </div>
+    <div class="content">
+      <div class="grid" id="grid">
+        <!-- Products will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+      <div class="modal-title" id="modalTitle">Edit Product</div>
+      <input type="hidden" id="editIndex">
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" class="form-control" id="fName">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" id="fDesc" rows="3"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Price (₹)</label>
+          <input type="number" class="form-control" id="fPrice">
+        </div>
+        <div class="form-group">
+          <label>Old Price (₹)</label>
+          <input type="number" class="form-control" id="fOldPrice">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Badge</label>
+        <select class="form-control" id="fBadge">
+          <option value="">None</option>
+          <option value="Sale">Sale</option>
+          <option value="New">New</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" style="width:auto;padding:10px 20px;" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" style="width:auto;padding:10px 20px;" onclick="saveProduct()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✅ Successfully published!</div>
+
+  <script>
+    let cats = [];
+    let activeCatIndex = 0;
+
+    // Fetch data on load
+    async function init() {
+      try {
+        const res = await fetch('/api/data');
+        const data = await res.json();
+        // Securely evaluate the JS string to get the array
+        cats = new Function('return ' + data.cats_js)();
+        renderNav();
+        renderGrid();
+      } catch (err) {
+        console.error(err);
+        document.getElementById('catTitle').textContent = "Failed to connect to Local Server";
+      }
+    }
+
+    function renderNav() {
+      const nav = document.getElementById('nav');
+      nav.innerHTML = '';
+      cats.forEach((cat, i) => {
+        const item = document.createElement('div');
+        item.className = `nav-item ${i === activeCatIndex ? 'active' : ''}`;
+        item.innerHTML = `${cat.icon} ${cat.label} (${cat.prods.length})`;
+        item.onclick = () => {
+          activeCatIndex = i;
+          renderNav();
+          renderGrid();
+        };
+        nav.appendChild(item);
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('grid');
+      const cat = cats[activeCatIndex];
+      document.getElementById('catTitle').textContent = cat.label + ' Uniforms';
+      
+      grid.innerHTML = '';
+      cat.prods.forEach((p, i) => {
+        const badge = p.b === 'Sale' ? '<span class="card-badge badge-sale">SALE</span>' : p.b === 'New' ? '<span class="card-badge badge-new">NEW</span>' : '';
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-header">
+            <div class="card-title">${p.n}</div>
+            ${badge}
+          </div>
+          <div class="card-desc">${p.d}</div>
+          <div class="card-price">₹${p.p.toLocaleString('en-IN')} <span>₹${p.o.toLocaleString('en-IN')}</span></div>
+          <div class="card-actions">
+            <button class="btn" onclick="openEditModal(${i})">Edit</button>
+            <button class="btn" style="color:var(--danger);border-color:#fca5a5" onclick="deleteProduct(${i})">Delete</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openEditModal(prodIndex) {
+      const p = cats[activeCatIndex].prods[prodIndex];
+      document.getElementById('modalTitle').textContent = 'Edit Product';
+      document.getElementById('editIndex').value = prodIndex;
+      document.getElementById('fName').value = p.n;
+      document.getElementById('fDesc').value = p.d;
+      document.getElementById('fPrice').value = p.p;
+      document.getElementById('fOldPrice').value = p.o;
+      document.getElementById('fBadge').value = p.b || '';
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function openAddModal() {
+      document.getElementById('modalTitle').textContent = 'Add New Product';
+      document.getElementById('editIndex').value = '-1';
+      document.getElementById('fName').value = 'New Product';
+      document.getElementById('fDesc').value = '';
+      document.getElementById('fPrice').value = 999;
+      document.getElementById('fOldPrice').value = 1299;
+      document.getElementById('fBadge').value = '';
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    function saveProduct() {
+      const idx = parseInt(document.getElementById('editIndex').value);
+      const cat = cats[activeCatIndex];
+      
+      const p = {
+        n: document.getElementById('fName').value,
+        c: cat.label,
+        ico: cat.icon,
+        d: document.getElementById('fDesc').value,
+        p: parseInt(document.getElementById('fPrice').value),
+        o: parseInt(document.getElementById('fOldPrice').value),
+        b: document.getElementById('fBadge').value,
+        sw: ['#2c3e50','#1a5276'] // Default swatches
+      };
+
+      if (idx === -1) {
+        cat.prods.push(p);
+      } else {
+        // Preserve original swatches and subcategory if editing
+        p.c = cat.prods[idx].c;
+        p.ico = cat.prods[idx].ico;
+        p.sw = cat.prods[idx].sw;
+        cat.prods[idx] = p;
+      }
+      
+      closeModal();
+      renderNav();
+      renderGrid();
+    }
+
+    function deleteProduct(idx) {
+      if(confirm('Are you sure you want to delete this product?')) {
+        cats[activeCatIndex].prods.splice(idx, 1);
+        renderNav();
+        renderGrid();
+      }
+    }
+
+    async function saveToGitHub() {
+      const btn = document.querySelector('.save-btn');
+      btn.textContent = 'Saving...';
+      
+      // Convert JS object back to string (JSON.stringify generates valid JS syntax for arrays of objects)
+      const newCatsJs = JSON.stringify(cats, null, 2);
+      
+      try {
+        const res = await fetch('/api/data', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({cats_js: newCatsJs})
+        });
+        
+        if (res.ok) {
+          showToast();
+        } else {
+          alert('Failed to save to index.html');
+        }
+      } catch (e) {
+        alert('Server error: ' + e.message);
+      }
+      
+      btn.textContent = '🚀 Save & Publish';
+    }
+
+    function showToast() {
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    init();
+  </script>
+</body>
+</html>

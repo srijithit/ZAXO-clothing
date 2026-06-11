@@ -944,8 +944,20 @@ function buildProducts(){
       card.className='pc';
       card.dataset.badge=p.b||'';
       card.dataset.search=(p.n+' '+p.c+' '+p.d).toLowerCase();
-      const maxImages = {'healthcare': 12, 'corporate': 5, 'industrial': 0, 'hospitality': 0, 'automobile': 0, 'tshirts': 0};
-      let imgUrl = (pi < maxImages[cat.id]) ? `images/${cat.id}_${pi+1}.jpg` : `images/${cat.id}.png`;
+      const customImages = {
+        'Full Sleeve Shirt': 'images/corporate_3.jpg',
+        'Half Sleeve Shirt': 'images/corporate_2.jpg',
+        'Blazer & Suit': 'images/corporate_1.jpg',
+        'Trousers': 'images/corporate_4.jpg',
+        'Skirts': 'images/corporate_5.jpg',
+        'Classic Scrub Set': 'images/healthcare_1.jpg',
+        'Doctor Lab Coat': 'images/healthcare_2.jpg',
+        'Mandarin Collar Scrubs': 'images/healthcare_6.jpg',
+        'Nurse Uniform Set': 'images/healthcare_3.jpg',
+        'Patient Gown': 'images/healthcare_4.jpg',
+        'Housekeeping Coat': 'images/healthcare_11.jpg'
+      };
+      let imgUrl = customImages[p.n] || `https://loremflickr.com/400/300/professional,${cat.id}?lock=${pi + 1}`;
       card.innerHTML=`<div class="pimg" style="position:relative">${bd}<img src="${imgUrl}" alt="${p.n}" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"><div style="position:absolute;z-index:1;background:rgba(255,255,255,0.9);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;bottom:12px;right:12px;font-size:1.2rem;box-shadow:var(--shadow-sm);">${p.ico}</div></div><div class="pbody"><div class="pcat">${p.c}</div><div class="pname">${p.n}</div><div class="pdesc">${p.d}</div><div class="pswatches">${sw}</div><div class="pfoot"><div class="pprice"><span class="pcurr">₹${p.p.toLocaleString('en-IN')}</span><span class="pold">₹${p.o.toLocaleString('en-IN')}</span></div><button class="pbtn" onclick="openMod('${cat.id}','${p.n.replace(/'/g,"\\'")}')">Details</button></div></div>`;
       grid.appendChild(card);
     });
